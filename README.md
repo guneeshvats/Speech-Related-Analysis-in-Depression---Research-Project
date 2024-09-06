@@ -7,7 +7,7 @@
 </p>
 
 <p style="text-align: center;">
-    <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="width: 10%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="width: 30%; height: auto;">
 </p>
 
 
