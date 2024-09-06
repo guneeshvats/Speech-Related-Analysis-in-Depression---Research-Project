@@ -7,7 +7,7 @@
 </p>
 
 <p style="text-align: center;">
-    <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="max-width: 80%;">
+    <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="max-width: 40%;">
 </p>
 
 <h2 style="text-align: center; font-size: 20px;">Speech Feature Variations in Depression</h2>
