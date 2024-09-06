@@ -3,12 +3,15 @@
 <p style="text-align: center; font-size: 14px;">
     1. We want to explore if subclinical population perceives emotion of an audio differently than healthy population.<br>
     2. Subclinical population means participants who have self-reported depression through a series of tests - like PHQ9 (Patient Health Questionnaire), GAD7 (General Anxiety Disorder), PSS4 (Perceived Stress Scale).<br>
-    3. We have conducted the survey on Labvanced software
-</p>
-
-<p style="text-align: center;">
+    3. We have collected our own data for this experiment from around 100 participants-all college students so basically this test was for young population (18-25 yrs of age group). 
+    4. We designed the experiment on a React based software - Labvanced and conducted the survey in a noise proof room with a system and a headphone. 
+    <p style="text-align: center;">
     <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="width: 20%; height: auto;">
 </p>
+    5. Design of the experiment : 
+    
+</p>
+
 
 
 <h2 style="text-align: center; font-size: 20px;">Speech Feature Variations in Depression</h2>
