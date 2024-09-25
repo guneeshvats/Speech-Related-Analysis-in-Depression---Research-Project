@@ -12,6 +12,9 @@
     
 </p>
 
+In the `Data Analysis` Folder 
+I have n `.ipynb` files which have the detailed analysis I have done on the collected data
+
 
 In the `Reviews` folder I have put the literature review of paper related to the project idea and any possible continuation of this project.
 
