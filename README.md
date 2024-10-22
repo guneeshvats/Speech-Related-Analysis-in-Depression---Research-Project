@@ -6,7 +6,7 @@
     3. We have collected our own data for this experiment from around 100 participants-all college students so basically this test was for young population (18-25 yrs of age group). 
     4. We designed the experiment on a React based software - Labvanced and conducted the survey in a noise proof room with a system and a headphone. 
     <p style="text-align: center;">
-    <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="width: 15%; height: auto;">    "     "
+    <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="width: 15%; height: auto;">              
 <img src="https://github.com/user-attachments/assets/4d845231-5522-46e7-9067-99c95c0e595f" alt="Psychopy" style="width: 25%; height: auto;">
 </p>
     5. Design of the experiment : 
