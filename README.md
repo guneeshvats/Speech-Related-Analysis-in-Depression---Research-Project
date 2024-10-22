@@ -7,6 +7,7 @@
     4. We designed the experiment on a React based software - Labvanced and conducted the survey in a noise proof room with a system and a headphone. 
     <p style="text-align: center;">
     <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="width: 20%; height: auto;">
+<img src="https://github.com/user-attachments/assets/4d845231-5522-46e7-9067-99c95c0e595f" alt="Psychopy" style="width: 20%; height: auto;">
 </p>
     5. Design of the experiment : 
     
