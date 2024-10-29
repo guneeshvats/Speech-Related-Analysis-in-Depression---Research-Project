@@ -20,6 +20,7 @@ I have n `.ipynb` files which have the detailed analysis I have done on the coll
 
 In the `Reviews` folder I have put the literature review of paper related to the project idea and any possible continuation of this project.
 
+Before Data Collection some progress was tracked on Notion Page [Link](https://www.notion.so/Speech-Emotion-Perception-in-Depression-Study-Outline-and-Flow-e56bfc2b048d419881f60b85ec5dc6d9)
 The combined dataset is in this link [Link](https://docs.google.com/spreadsheets/d/1_4NwibBrKdoR2oH8g5SPzXTxTBRVNg2DRbrac8FP7Pk/edit?gid=0#gid=0)
 1. Sheet one is stimuli wise data
 2. Sheet 2 is participant wise data (All sets combined), excluding the familial history
