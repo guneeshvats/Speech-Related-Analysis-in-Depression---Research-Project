@@ -1,6 +1,6 @@
 
 <h1 style="text-align: center; font-size: 24px;">Speech-Related-Analysis-in-Depression---Research-Project</h1>
-<p style="text-align: center; font-size: 18px;">Version 1 : Speech Emotion Perception in Depression</p>
+<h3 style="text-align: center; font-size: 18px;">Version 1 : Speech Emotion Perception in Depression</h3>
 <p style="text-align: center; font-size: 14px;">
     1. We want to explore if subclinical population perceives emotion of an audio differently than healthy population.<br>
     2. Subclinical population means participants who have self-reported depression through a series of tests - like PHQ9 (Patient Health Questionnaire), GAD7 (General Anxiety Disorder), PSS4 (Perceived Stress Scale).<br>
