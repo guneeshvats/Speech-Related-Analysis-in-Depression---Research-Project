@@ -38,6 +38,9 @@ The draft submitted in OCOCOSDA got accepted in 2024 on different population but
 
 
 <h3 style="text-align: center; font-size: 18px;">Version 2 : Speech Emotion Perception in Depression & Production Combined</h3>
+
+In Version 2 of the study, we have made a lot of changes. Identified problems due to which we didn't get good results from previous data and also made a plan to execute this study with Clinical MDD patients and also with subclinical population. 
+
 <p style="text-align: center;">
 <img src="https://github.com/user-attachments/assets/4d845231-5522-46e7-9067-99c95c0e595f" alt="Psychopy" style="width: 25%; height: auto;">
 </p>
