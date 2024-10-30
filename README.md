@@ -8,7 +8,6 @@
     4. We designed the experiment on a React based software - Labvanced and conducted the survey in a noise proof room with a system and a headphone. 
     <p style="text-align: center;">
     <img src="https://github.com/user-attachments/assets/7a9627d2-6c9a-4e50-97a3-6d8ee3b7c97b" alt="Survey Image" style="width: 15%; height: auto;">              
-<img src="https://github.com/user-attachments/assets/4d845231-5522-46e7-9067-99c95c0e595f" alt="Psychopy" style="width: 25%; height: auto;">
 </p>
     5. Design of the experiment : 
     
@@ -39,3 +38,6 @@ The draft submitted in OCOCOSDA got accepted in 2024 on different population but
 
 
 <h3 style="text-align: center; font-size: 18px;">Version 2 : Speech Emotion Perception in Depression & Production Combined</h3>
+<p style="text-align: center;">
+<img src="https://github.com/user-attachments/assets/4d845231-5522-46e7-9067-99c95c0e595f" alt="Psychopy" style="width: 25%; height: auto;">
+</p>
