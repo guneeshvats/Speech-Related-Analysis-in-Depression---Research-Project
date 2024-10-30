@@ -14,19 +14,28 @@
     
 </p>
 
+#### Data Analysis
 In the `Data Analysis` Folder 
-I have n `.ipynb` files which have the detailed analysis I have done on the collected data
+I have `.ipynb` files named in order in which I conducted the desriptive and inferential analysis on the collected data. - 2022-23
 
-
-In the `Reviews` folder I have put the literature review of paper related to the project idea and any possible continuation of this project.
+### Collected Data and Presentations and Track of Progress throughout 2022-23 [For Version 1 of the study] 
 
 Before Data Collection some progress was tracked on Notion Page [Link](https://www.notion.so/Speech-Emotion-Perception-in-Depression-Study-Outline-and-Flow-e56bfc2b048d419881f60b85ec5dc6d9)
-The combined dataset is in this link [Link](https://docs.google.com/spreadsheets/d/1_4NwibBrKdoR2oH8g5SPzXTxTBRVNg2DRbrac8FP7Pk/edit?gid=0#gid=0)
-1. Sheet one is stimuli wise data
-2. Sheet 2 is participant wise data (All sets combined), excluding the familial history
 
-In this link 4 sheets are setwise separate data [Link]()
+#### Presentations (Summary) :
+1. This link has Ideation, sampling, Interface discussions ---> Pilot Data analysis and progress track:  [Presentation - 1](https://docs.google.com/presentation/d/14kXd_Xaqa_uGY4h6TkJMQzti7Uke49cHgAhDAkgOP0A/edit#slide=id.p)
+2. This link has overall data Stats ----> Complete Data Analysis & Discussion:   [Presentation - 2](https://docs.google.com/presentation/d/1GjrK5cmMwWNkRExG5SIMr0DqPVIIxpg31Q1eFJJU3_U/edit#slide=id.p)
 
-Link for the First Run of experiment with 97 participants - stimuli data (Stimuli Sampled from IEMOCAP DATASET) [Link](https://docs.google.com/spreadsheets/d/1PbeoMR-W1pU6s_psm8yv1StW9wxlD0xhxQNcasRBbT8/edit?usp=sharing)
+#### Other Useful Links : 
+1. This link has IEMOCAP sampled stimuli Ratings and distribution in 4 sets: [Link(Each set sheet is properly labelled)](https://docs.google.com/spreadsheets/d/1PbeoMR-W1pU6s_psm8yv1StW9wxlD0xhxQNcasRBbT8/edit?usp=sharing)
+2. This google drive link has IEMOCAP dataset sampled stimuli files : [Link](https://drive.google.com/drive/folders/1kctOEJ8r4CUlr1vRCjQd6C0haFVbpPp_)
+3. This is the collected data (Both stimuli wise and participant wise) : [Link](https://docs.google.com/spreadsheets/d/1_4NwibBrKdoR2oH8g5SPzXTxTBRVNg2DRbrac8FP7Pk/edit?gid=0#gid=0)
+4. This link has Labvanced Version of Study flow and Text used to show the participants : [Link](https://docs.google.com/document/d/1FKyyKU7vsrQENEVPBZi-B5Y_zc0KgvxZTv76Wvau5-g/edit?tab=t.0)
+5. This 2 links have the information of the participants who were part of the study : [Link1](https://docs.google.com/spreadsheets/d/1hLCXMlE9K6yrb1wY8aJ8tGH2Cg_0zOD1jLObBMBKMUY/edit?gid=0#gid=0), [Link2](https://docs.google.com/spreadsheets/d/1rMPBS6GB-CiHiUUmWfyHyu1q0outvl-7Y3gU7BbkrYc/edit?gid=0#gid=0)
 
-<h2 style="text-align: center; font-size: 20px;">Speech Feature Variations in Depression</h2>
+
+The draft submitted in Interspeech is named `Interspeech_V5 zip file` got rejected in 2023
+The draft submitted in OCOCOSDA got accepted in 2024 on different population but similar design named `IIITSaint_EmoMDD_2024.pdf`
+
+
+<h3 style="text-align: center; font-size: 18px;">Version 2 : Speech Emotion Perception in Depression & Production Combined</h3>
