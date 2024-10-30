@@ -16,7 +16,7 @@
 </p>
 
 #### Data Analysis
-- Check the `Data Analysis` folder for `.ipynb` files outlining the descriptive and inferential analyses conducted in 2022-23.
+- Check the `Analysis_V1` folder for `.ipynb` files outlining the descriptive and inferential analyses conducted in 2022-23 in version 1 of the study.
 
 #### Collected Data, Presentations, and Progress Tracking (2022-23)
 
