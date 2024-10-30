@@ -34,8 +34,8 @@ Before Data Collection some progress was tracked on Notion Page [Link](https://w
 5. This 2 links have the information of the participants who were part of the study : [Link1](https://docs.google.com/spreadsheets/d/1hLCXMlE9K6yrb1wY8aJ8tGH2Cg_0zOD1jLObBMBKMUY/edit?gid=0#gid=0), [Link2](https://docs.google.com/spreadsheets/d/1rMPBS6GB-CiHiUUmWfyHyu1q0outvl-7Y3gU7BbkrYc/edit?gid=0#gid=0)
 
 
-The draft submitted in Interspeech is named `Interspeech_V5 zip file` got rejected in 2023
-The draft submitted in OCOCOSDA got accepted in 2024 on different population but similar design named `IIITSaint_EmoMDD_2024.pdf`
+The draft submitted in Interspeech is named `Version 5_submission.pdf` got rejected in 2023. The Latex, Overleaf Zip folder is also uploaded - `Interspeech_submission_2023_V5.zip`
+The draft submitted in OCOCOSDA got accepted in 2024 on different population but similar design named `IIITSaint_EmoMDB_2024.pdf`
 
 
 <h3 style="text-align: center; font-size: 18px;">Version 2 : Speech Emotion Perception in Depression & Production Combined</h3>
