@@ -52,5 +52,7 @@ In Version 2, we made significant changes to address challenges from Version 1. 
 
 In the folder - `Psychopy_Speech_Depression` I am tracking all the new codes that I have written for this new version of the study. 
 
+Instructions for this study - [Link](https://docs.google.com/document/d/1w5UWErsPd9viVSa4ohO3QQxP07mwwRgHAJH7JjilpZs/edit?tab=t.0)
+
 Research papers to review for Speech Production Analysis : 
 
