@@ -58,9 +58,26 @@ demographic_questions = [
     }
 ]
 
-# Initialize components for Welcome Screen
+#############################################################################################
+'''Welcome Page Heading Text'''
+#############################################################################################
+welcomeHeading = visual.TextStim(
+    win=win, name='welcomeHeading',
+    text="WELCOME!",
+    font='Arial',
+    pos=(0, 0.4),  
+    height=0.06,  
+    color='black',
+    colorSpace='rgb',
+    opacity=1,
+    alignText='center'  
+)
+
+#############################################################################################
+'''Welcome Page Text'''
+#############################################################################################
 welcomeText = visual.TextStim(win=win, name='welcomeText',
-    text="""WELCOME!\n\n
+    text="""
     We appreciate your participation in our study. This study is conducted by the research team of Cognitive 
     Science Lab and Speech Processing Lab, International Institute of Information Technology, Hyderabad. It aims to
     understand Speech Emotion Perception and Production in young adults.
@@ -84,11 +101,15 @@ welcomeText = visual.TextStim(win=win, name='welcomeText',
 
     If you would like to know more, please proceed by clicking the 'Continue' button below.
     """,
-    font='Arial', pos=(0, -0.35), 
-    height=text_size, wrapWidth=1.1, 
-    color='black', colorSpace='rgb', 
-    opacity=1, languageStyle='LTR', 
-    alignText='center')
+    font='Arial', 
+    pos=(-0.4, -0.35), 
+    height=text_size, 
+    wrapWidth=1.1, 
+    color='black', 
+    colorSpace='rgb', 
+    opacity=1, 
+    languageStyle='LTR', 
+    alignText='left')
 
 # 'Continue' button for welcome page (positioned on the right side)
 continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
@@ -124,16 +145,22 @@ def debounce_click(mouse, wait_time=0.5):
 
 # Function to display the scrollable welcome screen
 def display_welcome():
-    scroll_position = -0.4
+    scroll_position = -0.35  # Initial scroll position
     mouse = event.Mouse(visible=True, win=win)
 
     while True:
-        welcomeText.setPos((0, scroll_position))
+        # Set the position of both the heading and the main text based on scroll_position
+        welcomeHeading.setPos((0, 0.75 + scroll_position))  # Adjust the y-position for the heading
+        welcomeText.setPos((0, scroll_position))  # Adjust the y-position for the main text
+
+        # Draw both the heading and the main text
+        welcomeHeading.draw()
         welcomeText.draw()
         continueButton.draw()
         continueButtonText.draw()
         win.flip()
 
+        # Handle scroll wheel input to update the scroll position
         scroll_wheel = mouse.getWheelRel()[1]
         scroll_position += scroll_wheel * 0.03
 
@@ -141,51 +168,28 @@ def display_welcome():
             debounce_click(mouse)  # Debounce to prevent accidental multiple clicks
             break
 
-# Function to display the consent form (positioned button on the right)
-def display_consent_form():
-    consentText = visual.TextStim(win=win, text= """
-    Consent Form\n\n
-    I hereby give my consent and permit members of the research team to access a de-identified version (with no mention of my name) of the data. The clinical information related to me will be used only for research purposes.\n\n
-    I understand I will not be identified or identifiable in the report or reports that result from the research.\n\n
-    I understand anonymized data can be shared in the public domain with other researchers worldwide.\n\n
-    I have read the general information about the study and I have asked any questions regarding the procedure which have been satisfactorily answered. \n\n
-    I am older than 18 years of age and no older than the age of 25.\n\n
-    I understand the type of data being collected in this study and the reason for its collection. \n\n
-    We hope you have read the general information. If you agree to all of the above, click on 'I Accept'  button to participate.
-    """, font='Arial', 
-    pos=(-0.2, -0.35), 
-    height=text_size, 
-    wrapWidth=1.1, 
-    color='black', 
-    colorSpace='rgb', 
-    opacity=1, 
-    languageStyle='LTR', 
-    alignText='left')
 
-    acceptButton = visual.Rect(win, width=0.2, height=0.07, fillColor='green', pos=(0.7, -0.4))  # Button moved to the right
-    acceptButtonText = visual.TextStim(win=win, text="I Accept", pos=(0.7, -0.4), height=0.04, color='white')
+#############################################################################################
+'''General Instructions Page Heading Text'''
+#############################################################################################
+instructionsHeading = visual.TextStim(
+    win=win, name='instructionsHeading',
+    text="GENERAL INSTRUCTIONS",
+    font='Arial',
+    pos=(0, 0.4),  
+    height=0.06,  
+    color='black',
+    colorSpace='rgb',
+    opacity=1,
+    alignText='center'
+)
 
-    scroll_position = -0.4
-    mouse = event.Mouse()
-
-    while True:
-        consentText.setPos((0, scroll_position))
-        consentText.draw()
-        acceptButton.draw()
-        acceptButtonText.draw()
-        win.flip()
-
-        scroll_wheel = mouse.getWheelRel()[1]
-        scroll_position += scroll_wheel * 0.03
-
-        if mouse.isPressedIn(acceptButton):
-            debounce_click(mouse)  # Debounce to prevent accidental multiple clicks
-            break
-
-# Function to display instructions (positioned button on the right)
+#############################################################################################
+'''General Instructions Page'''
+#############################################################################################
 def display_instructions():
-    instructionsText = visual.TextStim(win=win, text= """
-    Details about the study\n\n
+    instructionsText = visual.TextStim(win=win, text= 
+    """
     Let me walk you through the process. Also, please read the given FAQ carefully.\n\n
     The study will last for around 40-45 minutes and consists of 5 tasks:\n\n
     - Survey about your demographic information\n
@@ -195,7 +199,7 @@ def display_instructions():
     - Speech Production Test \n
     - General Health Questionnaire\n\n
     We will start the study with the Demographic information survey, followed by a Language fluency test and current mood assessment. Later in the survey, you will be asked to perceive the speaker's emotions from a series of audio files presented to you. Instructions about this task will be provided later. Finally, the study ends with a health survey to obtain general health measures. Each test is different in nature and hence the duration.\n\n
-            Frequently Asked Questions (FAQ)\n
+                            FREQUENTLY ASKED QUESTIONS (FAQ)\n
     Q: What are the benefits of this research?\n
     A: You may not be directly benefited by participating in our study. However, your participation will potentially advance our understanding of the impact of psychological health on emotion perception.\n\n
     Q: What are the risks or inconveniences involved in this survey?\n
@@ -210,17 +214,28 @@ def display_instructions():
     Research Student: guneesh.vats@research.iiit.ac.in \n
     Professors: priyanka.srivastava@iiit.ac.in, chiranjeevi.yarra@iiit.ac.in.\n\n
     """,
-    font='Arial', pos=(0, 0), height=text_size, wrapWidth=0.9, color='black', colorSpace='rgb', 
-    opacity=1, languageStyle='LTR', alignText='center')
+    font='Arial', 
+    pos=(-0.40, -0.35), 
+    height=text_size, 
+    wrapWidth=1.2, 
+    color='black', 
+    colorSpace='rgb', 
+    opacity=1, 
+    languageStyle='LTR', 
+    alignText='left')
 
-    understandButton = visual.Rect(win, width=0.3, height=0.07, fillColor='green', pos=(0.7, -0.4))  # Button moved to the right
-    understandButtonText = visual.TextStim(win=win, text="I Understand", pos=(0.7, -0.4), height=0.04, color='white')
+    understandButton = visual.Rect(win, width=0.3, height=0.07, fillColor='darkgreen', pos=(0.70, -0.4))
+    understandButtonText = visual.TextStim(win=win, text="I Understand", pos=(0.70, -0.4), height=0.04, color='white')
 
-    scroll_position = -1.67
+    scroll_position = -1.44
     mouse = event.Mouse()
 
     while True:
+        # Defining heading and its position in the page
+        instructionsHeading.setPos((0, 1.80 + scroll_position))
+
         instructionsText.setPos((0, scroll_position))
+        instructionsHeading.draw()
         instructionsText.draw()
         understandButton.draw()
         understandButtonText.draw()
@@ -230,8 +245,65 @@ def display_instructions():
         scroll_position += scroll_wheel * 0.03
 
         if mouse.isPressedIn(understandButton):
+             # Debounce to prevent accidental multiple clicks
+            debounce_click(mouse) 
+            break
+
+consentHeading = visual.TextStim(
+    win=win, name='consentHeading',
+    text="CONSENT FORM",
+    font='Arial',
+    pos=(0, 0.4),  # Initial position at the top
+    height=0.06,  # Use a slightly larger font size for the heading
+    color='black',
+    colorSpace='rgb',
+    opacity=1,
+    alignText='center'  # Center align the heading
+)
+
+# Function to display the consent form (positioned button on the right)
+def display_consent_form():
+    consentText = visual.TextStim(win=win, text= 
+    """
+    I hereby give my consent and permit members of the research team to access a de-identified version (with no mention of my name) of the data. The clinical information related to me will be used only for research purposes.\n\n
+    I understand I will not be identified or identifiable in the report or reports that result from the research.\n\n
+    I understand anonymized data can be shared in the public domain with other researchers worldwide.\n\n
+    I have read the general information about the study and I have asked any questions regarding the procedure which have been satisfactorily answered. \n\n
+    I am older than 18 years of age and no older than the age of 25.\n\n
+    I understand the type of data being collected in this study and the reason for its collection. \n\n
+    We hope you have read the general information. If you agree to all of the above, click on 'I Accept'  button to participate.
+    """, font='Arial', 
+    pos=(-0.40, -0.35), 
+    height=text_size, 
+    wrapWidth=1.15, 
+    color='black', 
+    colorSpace='rgb', 
+    opacity=1, 
+    languageStyle='LTR', 
+    alignText='left')
+
+    acceptButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))  # Button moved to the right
+    acceptButtonText = visual.TextStim(win=win, text="I Accept", pos=(0.7, -0.4), height=0.04, color='white')
+
+    scroll_position = -0.4
+    mouse = event.Mouse()
+
+    while True:
+        consentHeading.setPos((0, 0.8 + scroll_position))
+        consentText.setPos((0, scroll_position))
+        consentHeading.draw()
+        consentText.draw()
+        acceptButton.draw()
+        acceptButtonText.draw()
+        win.flip()
+
+        scroll_wheel = mouse.getWheelRel()[1]
+        scroll_position += scroll_wheel * 0.03
+
+        if mouse.isPressedIn(acceptButton):
             debounce_click(mouse)  # Debounce to prevent accidental multiple clicks
             break
+
 
 #############################################################################################
 '''Demographic Instruction Page'''
@@ -306,7 +378,7 @@ def display_demographic_questions():
         option_labels.append(labels)
 
     # Create a Submit button exactly like the Continue button from the welcome page
-    submitButton = visual.Rect(win, width=0.2, height=0.07, fillColor='green', pos=(0.7, -0.4))  # Same position as welcome page
+    submitButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))  # Same position as welcome page
     submitButtonText = visual.TextStim(win=win, text="Submit", pos=(0.7, -0.4), height=0.04, color='white')  # Same style
 
     while True:
@@ -385,7 +457,7 @@ def display_phq9_survey():
         option_buttons.append(buttons)
 
     # Add a Submit button at the right bottom, like the "Continue" button on the welcome page
-    submit_button = visual.Rect(win, width=0.2, height=0.07, fillColor='green', pos=(0.7, -0.8))  # Submit button at the right bottom
+    submit_button = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.8))  # Submit button at the right bottom
     submit_button_text = visual.TextStim(win=win, text="Submit", pos=(0.7, -0.8), height=0.04, color='white')
 
     scroll_position = -0.3  # Start the page from the top
