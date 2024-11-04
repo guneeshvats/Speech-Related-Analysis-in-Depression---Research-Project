@@ -695,12 +695,12 @@ def display_speech_production_instructions():
     continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
     continueButtonText = visual.TextStim(win=win, text="Continue", pos=(0.7, -0.4), height=0.04, color='white')
 
-    scroll_position = -0.29  # Initial scroll position
+    scroll_position = -0.19  # Initial scroll position
     mouse = event.Mouse(visible=True, win=win)
 
     while True:
         # Update the position of the main text based on scroll_position
-        speechHeading.setPos((0, 0.51 + scroll_position))
+        speechHeading.setPos((0, 0.53 + scroll_position))
         speechInstructionsText.setPos((0, scroll_position))
 
         # Draw the heading, text, and button
