@@ -253,12 +253,12 @@ consentHeading = visual.TextStim(
     win=win, name='consentHeading',
     text="CONSENT FORM",
     font='Arial',
-    pos=(0, 0.4),  # Initial position at the top
-    height=0.06,  # Use a slightly larger font size for the heading
+    pos=(0, 0.4),
+    height=0.06,  
     color='black',
     colorSpace='rgb',
     opacity=1,
-    alignText='center'  # Center align the heading
+    alignText='center'
 )
 
 # Function to display the consent form (positioned button on the right)
@@ -291,6 +291,7 @@ def display_consent_form():
     while True:
         consentHeading.setPos((0, 0.8 + scroll_position))
         consentText.setPos((0, scroll_position))
+
         consentHeading.draw()
         consentText.draw()
         acceptButton.draw()
@@ -653,6 +654,72 @@ def present_stimulus(audio_file, audio_index):
 # Stimuli loop setup
 audioStimuli = ['audio_1.wav', 'audio_2.wav']
 
+
+#############################################################################################
+'''SPEECH PRODUCTION TASK INSTRUCITONS PAGE'''
+#############################################################################################
+def display_speech_production_instructions():
+    # Heading for the instruction page, similar to the "WELCOME" heading
+    speechHeading = visual.TextStim(
+        win=win, name='speechHeading',
+        text="SPEECH PRODUCTION TASK",
+        font='Arial',
+        pos=(0, 0.4),  # Position at the top
+        height=0.06,  # Larger text size for the heading
+        color='black',
+        colorSpace='rgb',
+        opacity=1,
+        alignText='center'
+    )
+
+
+    # Instruction text for the speech production task, matching the style of the welcome page
+    speechInstructionsText = visual.TextStim(
+        win=win,
+        text="""You are about to begin the Speech Production Task.\n\n
+        In this task, you will be presented with a series of paragraphs. Your goal is to read each paragraph aloud while recording your voice.\n\n
+        Please make sure to speak clearly and at a natural pace. Once you are ready to record, click the 'Record' button.\n\n
+        You can stop the recording by clicking the button again. Make sure to complete reading each paragraph before stopping the recording.\n\n
+        When you are ready to begin, click the 'Continue' button below.""",
+        font='Arial',
+        pos=(-0.4, -0.35), 
+        height=text_size,  
+        wrapWidth=1.1,
+        color='black',       
+        colorSpace='rgb',
+        opacity=1,
+        alignText='center'
+    )
+
+    # "Continue" button matching the style and position of the welcome page
+    continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
+    continueButtonText = visual.TextStim(win=win, text="Continue", pos=(0.7, -0.4), height=0.04, color='white')
+
+    scroll_position = -0.29  # Initial scroll position
+    mouse = event.Mouse(visible=True, win=win)
+
+    while True:
+        # Update the position of the main text based on scroll_position
+        speechHeading.setPos((0, 0.51 + scroll_position))
+        speechInstructionsText.setPos((0, scroll_position))
+
+        # Draw the heading, text, and button
+        speechHeading.draw()
+        speechInstructionsText.draw()
+        continueButton.draw()
+        continueButtonText.draw()
+        win.flip()
+
+        # Handle scroll wheel input to update the scroll position
+        scroll_wheel = mouse.getWheelRel()[1]
+        scroll_position += scroll_wheel * 0.03
+
+        # Check if the continue button is clicked
+        if mouse.isPressedIn(continueButton):
+            debounce_click(mouse)  # Debounce to prevent accidental multiple clicks
+            break
+
+
 # CSV file setup
 csv_file = 'experiment_data_temp.csv'
 file_exists = os.path.isfile(csv_file)
@@ -679,6 +746,7 @@ for i, audio_file in enumerate(audioStimuli):
     arousalRating, arousalRT = rate_sam(samArousalButtons, arousal_images, visual.TextStim(win=win, text="How excited was the speaker's voice in the provided audio file? (Press enter to next):", pos=(0, 0.4), height=0.05, color='black'))
 
     participant_data.append([audio_file, valenceRating, valenceRT, arousalRating, arousalRT, playCount])
+
 
 # Function to record audio using sounddevice and save as .wav with dynamic start/stop
 def record_audio_dynamic(file_name, fs=16000):
@@ -708,18 +776,47 @@ paragraphs = [
     "This is the third paragraph. Speak clearly and make sure you are recording."
 ]
 
+#############################################################################################
+'''SPEECH PRODUCTION TASK (Audio Recording)'''
+#############################################################################################
 # Function to display paragraphs and record speech with start/stop toggle
 def speech_production_task(participant_id, paragraph_num):
-    # Added smaller two-line instructions above the record button
-    instructions_text = visual.TextStim(win=win, text="Please read the paragraph below aloud.\nPress the record button to start.", 
-                                        font='Arial', pos=(0, 0.35), height=0.03, color='black', wrapWidth=0.8)
-    
-    paragraphText = visual.TextStim(win=win, text=paragraphs[paragraph_num-1], 
-                                    font='Arial', pos=(0, 0.15), height=0.04, wrapWidth=0.8, 
-                                    color='black', colorSpace='rgb', opacity=1, languageStyle='LTR')
-    
-    recordButton = visual.Rect(win, width=0.6, height=0.1, fillColor='red', pos=(0, -0.3))
-    recordButtonText = visual.TextStim(win=win, text="Record", pos=(0, -0.3), height=0.05, color='white')
+    # Adjusted instruction text to be higher on the screen
+    instructions_text = visual.TextStim(
+        win=win,
+        text="Please read the paragraph below aloud.\nPress the record button to start.",
+        font='Arial',
+        pos=(0, 0.45),  # Move the instructions higher up
+        height=0.03,  # Smaller text size for instructions
+        color='black',
+        wrapWidth=0.8
+    )
+
+    # Paragraph text positioned below the record button
+    paragraphText = visual.TextStim(
+        win=win,
+        text=paragraphs[paragraph_num - 1],
+        font='Arial',
+        pos=(0, -0.05),  # Move paragraph higher up to leave more space
+        height=0.04,
+        wrapWidth=0.8,
+        color='black',
+        colorSpace='rgb',
+        opacity=1,
+        languageStyle='LTR'
+    )
+
+    # Record button positioned slightly higher on the screen
+    recordButton = visual.Rect(
+        win, width=0.6, height=0.1, fillColor='red', pos=(0, 0.35)  # Move button higher up
+    )
+    recordButtonText = visual.TextStim(
+        win=win,
+        text="Record",
+        pos=(0, 0.35),  # Match position of the button [VERY IMPORTANT]
+        height=0.05,
+        color='white'
+    )
 
     mouse = event.Mouse(visible=True, win=win)
     recording = False
@@ -728,12 +825,13 @@ def speech_production_task(participant_id, paragraph_num):
     start_time = None
     end_time = None
     audio_file = f"{participant_id}_paragraph_{paragraph_num}.wav"
-    
+
     while True:
-        instructions_text.draw()
-        paragraphText.draw()
-        recordButton.draw()
-        recordButtonText.draw()
+        # Draw all elements on the screen
+        instructions_text.draw()  # Draw instructions at the top
+        recordButton.draw()  # Draw record button
+        recordButtonText.draw()  # Draw record button text
+        paragraphText.draw()  # Draw paragraph text below the button
         win.flip()
 
         if mouse.isPressedIn(recordButton):
@@ -769,6 +867,8 @@ def run_speech_production_task(participant_id):
     
     return speech_data
 
+# First displaying instructions and then the speech recording task
+display_speech_production_instructions()
 # After audio stimuli, run the speech production task
 speech_production_data = run_speech_production_task(participant_id)
 
