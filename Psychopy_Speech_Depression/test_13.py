@@ -1,3 +1,16 @@
+'''
+Need to add and adjust alignment
+1. Demographic Survey Complete
+2. Complete PHQ-9, GAD-7
+3. Thank You Note (in end)
+4. Recording Pages completely set 
+5. CSV File output correctly
+6. Instruction pages for each tasks
+7. proper Alignment of heading and paragraph on each page
+8. 
+'''
+
+
 import sounddevice as sd
 import numpy as np
 import wavio
@@ -285,11 +298,11 @@ def display_consent_form():
     acceptButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))  # Button moved to the right
     acceptButtonText = visual.TextStim(win=win, text="I Accept", pos=(0.7, -0.4), height=0.04, color='white')
 
-    scroll_position = -0.4
+    scroll_position = -0.42
     mouse = event.Mouse()
 
     while True:
-        consentHeading.setPos((0, 0.8 + scroll_position))
+        consentHeading.setPos((0, 0.75 + scroll_position))
         consentText.setPos((0, scroll_position))
 
         consentHeading.draw()
