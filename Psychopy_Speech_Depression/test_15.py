@@ -1,15 +1,3 @@
-'''
-Need to add and adjust alignment
-1. Demographic Survey Complete with alternate directions
-2. Complete PHQ-9, GAD-7
-3. Thank You Note (in end)
-4. Recording Pages completely set 
-5. CSV File output correctly 
-6. Instruction pages for each tasks
-7. proper Alignment of heading and paragraph on each page
-8. Enter keys all 
-'''
-
 import sounddevice as sd
 import numpy as np
 import wavio
@@ -347,7 +335,7 @@ def display_demographic_instructions():
             debounce_click(mouse)  # Debounce to prevent accidental multiple clicks
             break
 
-# Define the demographic questions and options
+# Defining the demographic questions and options
 demographic_questions = [
     {
         "question": "What is your age range?",
@@ -467,22 +455,6 @@ def display_demographic_questions():
         win.flip()
 
     return selected_answers
-
-
-# PHQ-9 Survey Questions Setup
-phq9_questions = [
-    "Little interest or pleasure in doing things?",
-    "Feeling down, depressed, or hopeless?",
-    "Trouble falling or staying asleep, or sleeping too much?",
-    "Feeling tired or having little energy?",
-    "Poor appetite or overeating?",
-    "Feeling bad about yourself or that you are a failure or have let yourself or your family down?",
-    "Trouble concentrating on things, such as reading the newspaper or watching television?",
-    "Moving or speaking so slowly that other people could have noticed. Or being so fidgety or restless that you've been moving around a lot more than usual?",
-    "Thoughts that you would be better off dead, or of hurting yourself?"
-]
-
-phq9_options = ["Not at all", "Several days", "More than half the days", "Nearly every day"]
 
 
 ############################################################################################################################################################
@@ -656,7 +628,7 @@ def display_scrollable_options(question, options, allow_multiple=False, vertical
             else:
                 button.fillColor = 'lightgrey'
 
-        # Draw the "Submit" button
+        # Drawing the "Submit" button on the screen
         submit_button.draw()
         submit_button_text.draw()
         win.flip()
@@ -674,16 +646,16 @@ def display_scrollable_options(question, options, allow_multiple=False, vertical
                     core.wait(0.2)  # Debounce
 
             if submit_button.contains(mouse):
+                
                 responses.append(", ".join([options[idx] for idx in selected_indices]))
                 break
-
-
 
 
 ############################################################################################################################################################
 '''                                                                     PHQ - 9, GAD-7 SURVEY                                                                 
 '''
 ############################################################################################################################################################
+
 def display_health_survey_instructions():
     # Heading for the instruction page, similar to the "WELCOME" heading
     healthHeading = visual.TextStim(
@@ -703,25 +675,25 @@ def display_health_survey_instructions():
         win=win,
         text=
         """
-        .\n
-        In this task, you will be presented with a General Health Survey Measures. 
-        Click Start to begin the test...
+        In this part of the experiment, you will be completing some general health surveys. 
+        Please answer each question carefully and honestly based on your recent experiences. 
+        Your responses will help us understand your overall well-being
         """,
         font='Arial',
-        pos=(-0.45, -0.35), 
+        pos=(-0.43, 0.25), 
         height=text_size,  
         wrapWidth=1.1,
         color='black',       
         colorSpace='rgb',
         opacity=1,
-        alignText='left'
+        alignText='center'
     )
 
     # "Continue" button matching the style and position of the welcome page
     continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
     continueButtonText = visual.TextStim(win=win, text="Start", pos=(0.7, -0.4), height=0.04, color='white')
 
-    scroll_position = -0.10  # Initial scroll position
+    scroll_position = -0.11  # Initial scroll position
     mouse = event.Mouse(visible=True, win=win)
 
     while True:
@@ -745,6 +717,22 @@ def display_health_survey_instructions():
             debounce_click(mouse)  # Debounce to prevent accidental multiple clicks
             break
 
+
+# PHQ-9 Survey Questions Setup
+phq9_questions = [
+    "Little interest or pleasure in doing things?",
+    "Feeling down, depressed, or hopeless?",
+    "Trouble falling or staying asleep, or sleeping too much?",
+    "Feeling tired or having little energy?",
+    "Poor appetite or overeating?",
+    "Feeling bad about yourself or that you are a failure or have let yourself or your family down?",
+    "Trouble concentrating on things, such as reading the newspaper or watching television?",
+    "Moving or speaking so slowly that other people could have noticed. Or being so fidgety or restless that you've been moving around a lot more than usual?",
+    "Thoughts that you would be better off dead, or of hurting yourself?"
+]
+
+phq9_options = ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+
 def display_phq9_survey():
     mouse = event.Mouse(visible=True, win=win)
     selected_answers_phq9 = [-1] * len(phq9_questions)  # Track selected answers
@@ -752,7 +740,7 @@ def display_phq9_survey():
     # Instruction text at the top of the page
     instruction_text = visual.TextStim(
         win=win, 
-        text="Please select how often you have been bothered by the following problems over the last two weeks:", 
+        text="Over the last two weeks, how often have you been bothered by any of the of the follwoing problems?", 
         pos=(0, 0.9),  # Higher position to ensure visibility
         height=0.04, 
         color='black', 
@@ -764,17 +752,21 @@ def display_phq9_survey():
 
     # Display PHQ-9 option labels at the top of the circular buttons
     option_label_texts = []
-    option_horizontal_spacing = 0.22  # Adjusted spacing between labels
+    option_horizontal_spacing = 0.25  # Adjusted spacing between labels
     text_size_small = 0.03  # Smaller text size for labels
 
     # Create labels for the options
     for i, label in enumerate(phq9_option_labels):
         label_pos = (-0.3 + i * option_horizontal_spacing, 0.75)  # Higher position above the buttons
-        label_text = visual.TextStim(win=win, text=label, pos=label_pos, height=text_size_small, color='black')
+        label_text = visual.TextStim(win=win, text=label, 
+                                     pos=label_pos, 
+                                     height=text_size_small, 
+                                     color='black', 
+                                     wrapWidth=0.2)
         option_label_texts.append(label_text)
 
     # Adjust vertical spacing for each question
-    question_vertical_spacing = 0.3
+    question_vertical_spacing = 0.19
 
     # Create visual elements for each question and its options
     question_texts = []
@@ -786,7 +778,7 @@ def display_phq9_survey():
             win=win, text=question, 
             pos=(-0.62, 0.6 - idx * question_vertical_spacing), 
             height=text_size_small, 
-            wrapWidth=0.6, 
+            wrapWidth=0.5, 
             color='black'
         )
         question_texts.append(question_text)
@@ -800,11 +792,11 @@ def display_phq9_survey():
         option_buttons.append(buttons)
 
     # Add a Submit button at the bottom right
-    submit_button = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.8))
+    submit_button = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.45))
     submit_button_text = visual.TextStim(win=win, text="Submit", pos=(0.7, -0.8), height=0.04, color='white')
 
     # Scroll position variable
-    scroll_position = 0
+    scroll_position = -0.5
     scroll_step = 0.05  # Adjust to change the scroll speed
 
     while True:
@@ -832,8 +824,8 @@ def display_phq9_survey():
                     visual.Circle(win, radius=0.02, pos=option_button.pos, fillColor='blue').draw()
 
         # Draw the Submit button
-        submit_button.setPos((0.7, -0.8 + scroll_position))
-        submit_button_text.setPos((0.7, -0.8 + scroll_position))
+        submit_button.setPos((0.7, -0.935 + scroll_position))
+        submit_button_text.setPos((0.7, -0.935 + scroll_position))
         submit_button.draw()
         submit_button_text.draw()
 
@@ -849,10 +841,139 @@ def display_phq9_survey():
 
         # Check if the Submit button is pressed and all questions are answered
         if -1 not in selected_answers_phq9 and mouse.isPressedIn(submit_button):
+            debounce_click(mouse)
             break
 
     return selected_answers_phq9
 
+
+
+# GAD-7 Survey Questions Setup
+gad7_questions = [
+    "Feeling nervous, anxious, or on edge?",
+    "Not being able to stop or control worrying?",
+    "Worrying too much about different things?",
+    "Trouble relaxing?",
+    "Being so restless that it is hard to sit still?",
+    "Becoming easily annoyed or irritable?",
+    "Feeling afraid as if something awful might happen?"
+]
+
+gad7_options = ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+
+
+def display_gad7_survey():
+    mouse = event.Mouse(visible=True, win=win)
+    selected_answers_gad7 = [-1] * len(gad7_questions)  # Track selected answers
+
+    # Instruction text at the top of the page
+    instruction_text = visual.TextStim(
+        win=win, 
+        text="Over the last two weeks, how often have you been bothered by any of the following problems?", 
+        pos=(0, 0.9),  # Higher position to ensure visibility
+        height=0.04, 
+        color='black', 
+        wrapWidth=1.5
+    )
+
+    # Define GAD-7 option labels
+    gad7_option_labels = ["Not at all", "Several days", "More than half the days", "Nearly every day"]
+
+    # Display GAD-7 option labels at the top of the circular buttons
+    option_label_texts = []
+    option_horizontal_spacing = 0.25  # Adjusted spacing between labels
+    text_size_small = 0.03  # Smaller text size for labels
+
+    # Create labels for the options
+    for i, label in enumerate(gad7_option_labels):
+        label_pos = (-0.3 + i * option_horizontal_spacing, 0.75)  # Higher position above the buttons
+        label_text = visual.TextStim(win=win, text=label, 
+                                     pos=label_pos, 
+                                     height=text_size_small, 
+                                     color='black', 
+                                     wrapWidth=0.2)
+        option_label_texts.append(label_text)
+
+    # Adjust vertical spacing for each question
+    question_vertical_spacing = 0.19
+
+    # Create visual elements for each question and its options
+    question_texts = []
+    option_buttons = []
+
+    for idx, question in enumerate(gad7_questions):
+        # Create question text on the left
+        question_text = visual.TextStim(
+            win=win, text=question, 
+            pos=(-0.62, 0.6 - idx * question_vertical_spacing), 
+            height=text_size_small, 
+            wrapWidth=0.5, 
+            color='black'
+        )
+        question_texts.append(question_text)
+
+        # Create option buttons for each question on the right
+        buttons = []
+        for opt_idx in range(len(gad7_option_labels)):
+            button_pos = (-0.3 + opt_idx * option_horizontal_spacing, 0.6 - idx * question_vertical_spacing)
+            option_button = visual.Circle(win, radius=0.02, pos=button_pos, lineColor='black')
+            buttons.append(option_button)
+        option_buttons.append(buttons)
+
+    # Add a Submit button at the bottom right
+    submit_button = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.62))
+    submit_button_text = visual.TextStim(win=win, text="Submit", pos=(0.7, -0.8), height=0.04, color='white')
+
+    # Scroll position variable
+    scroll_position = -0.55
+    scroll_step = 0.05  # Adjust to change the scroll speed
+
+    while True:
+        # Handle scroll wheel input to update the scroll position
+        scroll_wheel = mouse.getWheelRel()[1]
+        scroll_position += scroll_wheel * scroll_step
+
+        # Draw instruction text (make sure it is drawn first)
+        instruction_text.setPos((0, 0.9 + scroll_position))
+        instruction_text.draw()
+
+        # Draw option labels above the circular buttons
+        for label in option_label_texts:
+            label.setPos((label.pos[0], 0.75 + scroll_position))
+            label.draw()
+
+        # Draw questions and option buttons with scrolling
+        for q_idx, question_text in enumerate(question_texts):
+            question_text.setPos((-0.62, 0.6 + scroll_position - q_idx * question_vertical_spacing))
+            question_text.draw()
+            for opt_idx, option_button in enumerate(option_buttons[q_idx]):
+                option_button.setPos((-0.3 + opt_idx * option_horizontal_spacing, 0.6 + scroll_position - q_idx * question_vertical_spacing))
+                option_button.draw()
+                if selected_answers_gad7[q_idx] == opt_idx:
+                    visual.Circle(win, radius=0.02, pos=option_button.pos, fillColor='blue').draw()
+
+        # Draw the Submit button
+        submit_button.setPos((0.7, -0.55 + scroll_position))
+        submit_button_text.setPos((0.7, -0.55 + scroll_position))
+        submit_button.draw()
+        submit_button_text.draw()
+
+        win.flip()
+
+        # Mouse interaction for selecting answers
+        if mouse.getPressed()[0]:
+            pos = mouse.getPos()
+            for q_idx, question_buttons in enumerate(option_buttons):
+                for opt_idx, button in enumerate(question_buttons):
+                    if button.contains(mouse):
+                        selected_answers_gad7[q_idx] = opt_idx
+
+        # Check if the Submit button is pressed and all questions are answered
+        if -1 not in selected_answers_gad7 and mouse.isPressedIn(submit_button):
+            debounce_click(mouse)
+            break
+
+    return selected_answers_gad7
 
 ############################################################################################################################################################
 '''                                                                       SPEECH PERCEPTION TASK                                                                  
@@ -1238,9 +1359,6 @@ speech_production_data = run_speech_production_task(participant_id)
 for audio_file, duration in speech_production_data:
     participant_data.extend([audio_file, duration])
 
-# # Add the speech production data to the participant data list
-# for i, speech_data in enumerate(speech_production_data):
-#     participant_data.append(speech_data)
 
 # Display demographic instructions page before the demographic survey starts
 display_demographic_instructions()
@@ -1268,9 +1386,13 @@ else:  # If "Sought Help" is No
 
 # Display PHQ-9 Survey after the demographic survey
 display_health_survey_instructions()
+
 selected_answers_phq9 = display_phq9_survey()
 participant_data.extend(selected_answers_phq9)
 
+# Display GAD-7 Survey and collect responses
+selected_answers_gad7 = display_gad7_survey()
+participant_data.extend(selected_answers_gad7)
 
 # Write data to CSV
 with open(csv_file, mode='a', newline='') as file:
@@ -1294,6 +1416,7 @@ with open(csv_file, mode='a', newline='') as file:
             "Treatment Types"
         ])
         header.extend([f'PHQ9_Q{i+1}' for i in range(9)])
+        header.extend([f'GAD7_Q{i+1}' for i in range(7)])
         writer.writerow(header)
 
     # Write participant data
