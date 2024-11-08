@@ -41,27 +41,22 @@ welcomeHeading = visual.TextStim(
 )
 
 welcomeText = visual.TextStim(win=win, name='welcomeText',
-    text="""We appreciate your participation in our study. This study is conducted by the research team of Cognitive Science Lab and Speech Processing Lab, International Institute of Information Technology, Hyderabad. It aims tounderstand Speech Emotion Perception and Production in young adults.
+    text="""We appreciate your participation in our study. This study is conducted by the Cognitive Science Lab and Speech Processing Lab at the International Institute of Information Technology (IIIT), Hyderabad. Our goal is to understand Speech Emotion Perception and Production in young adults.
+
+Your participation is anonymous; no personal information will be linked to your responses. If you are 18-25 years old and can understand or speak English, you are eligible to participate.
     
-    There are going to be 5 different tasks & a demographic survey involved in the whole study. Each test is different in nature and hence the duration. You will be informed about the details as you proceed. The total time duration of the whole study will be 40-45 minutes.
+If you have any questions, you may ask us at any moment throughout the survey or email us:
 
-    Your participation is entirely anonymous. No personal identifying information will be associated with the data we collect from you. Anybody who is 18-25 years old and can understand and/or speak English is eligible to participate in this study.
+        - Research Student: guneesh.vats@research.iiit.ac.in
+        - Professors: priyanka.srivastava@iiit.ac.in,
+                      chiranjeevi.yarra@iiit.ac.in
 
-    If you have any questions, you may ask us at any moment throughout the survey or thereafter. You can also email us if you have any questions regarding this study:
-
-    Research Student:
-    guneesh.vats@research.iiit.ac.in
-
-    Professors:
-    priyanka.srivastava@iiit.ac.in
-    chiranjeevi.yarra@iiit.ac.in
-
-    If you would like to know more, please proceed by clicking the 'Continue' button below.
+    To continue, please click the 'Continue' button below.
     """,
     font='Arial', 
-    pos=(-0.4, -0.35), 
+    pos=(-0.4, -0.15), 
     height=text_size, 
-    wrapWidth=1.1, 
+    wrapWidth=1.15, 
     color='black', 
     colorSpace='rgb', 
     opacity=1, 
@@ -69,8 +64,8 @@ welcomeText = visual.TextStim(win=win, name='welcomeText',
     alignText='left')
 
 # 'Continue' button for welcome page (positioned on the right side)
-continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
-continueButtonText = visual.TextStim(win=win, text="Continue", pos=(0.7, -0.4), height=0.04, color='white')
+continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.42))
+continueButtonText = visual.TextStim(win=win, text="Continue", pos=(0.7, -0.42), height=0.04, color='white')
 
 # Initialize progress bar
 progressText = visual.TextStim(win=win, text='', pos=(0, 0.4), height=0.05, color='black')
@@ -109,7 +104,7 @@ def display_welcome():
     while True:
         # Set the position of both the heading and the main text based on scroll_position
         welcomeHeading.setPos((0, 0.77 + scroll_position))  # Adjust the y-position for the heading
-        welcomeText.setPos((0, scroll_position))  # Adjust the y-position for the main text
+        welcomeText.setPos((0, 0.27+scroll_position))  # Adjust the y-position for the main text
 
         # Draw both the heading and the main text
         welcomeHeading.draw()
@@ -144,36 +139,39 @@ instructionsHeading = visual.TextStim(
 
 def display_instructions():
     instructionsText = visual.TextStim(win=win, text= 
-    """
-    Let me walk you through the process. Also, please read the given FAQ carefully.\n
-    The study will last for around 40-45 minutes and consists of 5 tasks:\n
-    - Emotion Perception Test\n
-    - Language Fluency Test\n
-    - Speech Production Test \n
-    - Demographic Survey\n
-    - Current Mood Assessment\n
-    - General Health Questionnaire\n\n
-    We will start the study with the Demographic information survey, followed by a Language fluency test and current mood assessment. Later in the survey, you will be asked to perceive the speaker's emotions from a series of audio files presented to you. Instructions about this task will be provided later. Finally, the study ends with a health survey to obtain general health measures. Each test is different in nature and hence the duration.\n\n
-                    FREQUENTLY ASKED QUESTIONS (FAQ)\n
-    Q: What are the benefits of this research?\n
-    A: You may not be directly benefited by participating in our study. However, your participation will potentially advance our understanding of the impact of psychological health on emotion perception.\n\n
-    Q: What are the risks or inconveniences involved in this survey?\n
-    A: This study involves listening to audio. There are no potential risks associated. You may feel fatigued or tired from prolonged exposure to sounds. We will keep the volume levels in the recommended range for your comfort. If you feel any discomfort, please inform us immediately.\n\n
-    Q: How will my personal information be protected?\n
-    A: Your participation is entirely anonymous. No personal identifying information will be associated with the data we collect from you. Rest assured that all your responses will be treated with the utmost discretion.\n\n
-    Q: What are my participation rights?\n
-    A: Your participation in this study is entirely voluntary. You can choose to withdraw from this study at any point in time. However, for the benefit of research, we request you complete the study.\n\n
-    Q: Whom do I contact if I have questions about the survey?\n
-    A: If you have any questions, you may ask us at any moment throughout the survey or thereafter. You can also email us if you have any questions regarding this study:\n
+    """Let me walk you through the process. Also, please read the given FAQ carefully.\n
+The study will last for around 40-45 minutes and consists of 5 tasks:\n
+    - Emotion Perception Test
+    - Language Fluency Test
+    - Speech Production Test
+    - Demographic Survey
+    - Current Mood Assessment
+    - General Health Questionnaire\n
+The study will begin with a Language Fluency Test, followed by an assessment of your current mood. Next, you’ll listen to a series of audio clips and identify the speaker's emotions. Detailed instructions for this task will be provided beforehand.
+
+Following that, you'll complete a Speech Production Task, where you'll record yourself reading a few paragraphs aloud. Finally, the study concludes with a Demographic Survey and a General Health Survey to gather general health information.
+
+Each task is unique in nature and duration.\n\n
+                        FREQUENTLY ASKED QUESTIONS (FAQ)\n
+Q: What are the benefits of this research?\n
+A: You may not be directly benefited by participating in our study. However, your participation will potentially advance our understanding of the impact of psychological health on emotion perception.\n\n
+Q: What are the risks or inconveniences involved in this survey?\n
+A: This study requires you to listen to audio clips and record yourself reading a paragraph. There are no known risks associated; however, you may feel some fatigue from prolonged listening. To ensure your comfort, we’ll maintain recommended volume levels. If you experience any discomfort, please let us know immediately.\n\n
+Q: How will my personal information be protected?\n
+A: Your privacy is our priority. All data collected in this study will remain anonymous, and no personal identifying information will be linked to your responses. Data will be stored securely and accessible only to authorized members of the research team. Results will be reported in aggregate form, ensuring individual identities remain confidential.\n\n
+Q: What are my participation rights?\n
+A: Your participation in this study is entirely voluntary. You can choose to withdraw from this study at any point in time. However, for the benefit of research, we request you complete the study.\n\n
+Q: Whom do I contact if I have questions about the survey?\n
+A: If you have any questions, you may ask us at any moment throughout the survey or thereafter. You can also email us if you have any questions regarding this study:\n
     
-    Research Student: 
-    guneesh.vats@research.iiit.ac.in \n
-    Professors: 
-    priyanka.srivastava@iiit.ac.in 
-    chiranjeevi.yarra@iiit.ac.in.\n
+    - Research Student: guneesh.vats@research.iiit.ac.in
+    - Professors: priyanka.srivastava@iiit.ac.in, 
+                           chiranjeevi.yarra@iiit.ac.in
+
+If you understand and wish to proceed, please click the "I Understand" button
     """,
     font='Arial', 
-    pos=(-0.45, -0.35), 
+    pos=(-0.45, -0.55), 
     height=text_size, 
     wrapWidth=1.1, 
     color='black', 
@@ -191,9 +189,9 @@ def display_instructions():
 
     while True:
         # Defining heading and its position in the page
-        instructionsHeading.setPos((0, 1.81 + scroll_position))
+        instructionsHeading.setPos((0, 1.83 + scroll_position))
 
-        instructionsText.setPos((0, scroll_position))
+        instructionsText.setPos((0, 0.02+ scroll_position))
         instructionsHeading.draw()
         instructionsText.draw()
         understandButton.draw()
@@ -229,13 +227,13 @@ consentHeading = visual.TextStim(
 def display_consent_form():
     consentText = visual.TextStim(win=win, text= 
     """
-    I hereby give my consent and permit members of the research team to access a de-identified version (with no mention of my name) of the data. The clinical information related to me will be used only for research purposes.\n\n
-    I understand I will not be identified or identifiable in the report or reports that result from the research.\n\n
-    I understand anonymized data can be shared in the public domain with other researchers worldwide.\n\n
-    I have read the general information about the study and I have asked any questions regarding the procedure which have been satisfactorily answered. \n\n
-    I am older than 18 years of age and no older than the age of 25.\n\n
-    I understand the type of data being collected in this study and the reason for its collection. \n\n
-    We hope you have read the general information. If you agree to all of the above, click on 'I Accept'  button to participate.
+1. I hereby give my consent and permit members of the research team to access a de-identified version (with no mention of my name) of the data. The clinical information related to me will be used only for research purposes.\n
+2. I understand I will not be identified or identifiable in the report or reports that result from the research.\n
+3. I understand that anonymized data can be shared in the public domain with other researchers worldwide.\n
+4. I have read the general information about the study and I have asked any questions regarding the procedure which have been satisfactorily answered. \n
+5. I am older than 18 years of age and no older than the age of 25.\n
+6. I understand the type of data being collected in this study and the reason for its collection. \n\n
+We hope you have read the general information. If you agree to all of the above, click on 'I Accept'  button to participate.
     """, font='Arial', 
     pos=(-0.40, -0.35), 
     height=text_size, 
@@ -254,7 +252,7 @@ def display_consent_form():
 
     while True:
         consentHeading.setPos((0, 0.71 + scroll_position))
-        consentText.setPos((0, scroll_position))
+        consentText.setPos((0, 0.098+scroll_position))
 
         consentHeading.draw()
         consentText.draw()
@@ -281,11 +279,160 @@ def display_consent_form():
 '''
 ############################################################################################################################################################
 
+# PANAS Survey Questions and Options
+panas_questions = [
+    "Interested", "Distressed", "Excited", "Upset", "Strong", "Guilty", "Scared",
+    "Hostile", "Enthusiastic", "Proud", "Irritable", "Alert", "Ashamed", "Inspired",
+    "Nervous", "Determined", "Attentive", "Jittery", "Active", "Afraid"
+]
+panas_options = ["Very slightly or not at all", "A little", "Moderately", "Quite a bit", "Extremely"]
+
+def display_panas_survey():
+    mouse = event.Mouse(visible=True, win=win)
+    selected_answers_panas = [-1] * len(panas_questions)  # Track selected answers
+
+    # Instruction text for PANAS
+    instruction_text = visual.TextStim(
+        win=win, 
+        text="This scale consists of a number of words that describe different feelings and emotions. Read each item and indicate to what extent you are feeling right now", 
+        pos=(0, 0.9), 
+        height=0.04, 
+        color='black', 
+        wrapWidth=1.5, 
+        alignText='center'
+    )
+
+    # Option labels for PANAS (similar to PHQ-9 options display)
+    option_label_texts = []
+    option_horizontal_spacing = 0.25   #0.25
+    text_size_small = 0.03
+
+    for i, label in enumerate(panas_options):
+        label_pos = (-0.3 + i * option_horizontal_spacing, 0.75)
+        label_text = visual.TextStim(win=win, text=label, pos=label_pos, height=text_size_small, color='black', wrapWidth=0.2)
+        option_label_texts.append(label_text)
+
+    question_vertical_spacing = 0.14
+    question_texts = []
+    option_buttons = []
+
+    for idx, question in enumerate(panas_questions):
+        question_text = visual.TextStim(
+            win=win, text=question, 
+            pos=(-0.62, 0.6 - idx * question_vertical_spacing), 
+            height=text_size_small, 
+            wrapWidth=0.5, 
+            color='black'
+        )
+        question_texts.append(question_text)
+
+        buttons = []
+        for opt_idx in range(len(panas_options)):
+            button_pos = (-0.3 + opt_idx * option_horizontal_spacing, 0.6 - idx * question_vertical_spacing)
+            option_button = visual.Circle(win, radius=0.02, pos=button_pos, lineColor='black')
+            buttons.append(option_button)
+        option_buttons.append(buttons)
+
+    submit_button = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.45))
+    submit_button_text = visual.TextStim(win=win, text="Submit", pos=(0.7, -0.8), height=0.04, color='white')
+
+    scroll_position = -0.5
+    scroll_step = 0.05
+
+    while True:
+        scroll_wheel = mouse.getWheelRel()[1]
+        scroll_position += scroll_wheel * scroll_step
+
+        instruction_text.setPos((0, 0.9 + scroll_position))
+        instruction_text.draw()
+
+        for label in option_label_texts:
+            label.setPos((label.pos[0], 0.75 + scroll_position))
+            label.draw()
+
+        for q_idx, question_text in enumerate(question_texts):
+            question_text.setPos((-0.62, 0.6 + scroll_position - q_idx * question_vertical_spacing))
+            question_text.draw()
+            for opt_idx, option_button in enumerate(option_buttons[q_idx]):
+                option_button.setPos((-0.3 + opt_idx * option_horizontal_spacing, 0.6 + scroll_position - q_idx * question_vertical_spacing))
+                option_button.draw()
+                if selected_answers_panas[q_idx] == opt_idx:
+                    visual.Circle(win, radius=0.02, pos=option_button.pos, fillColor='blue').draw()
+
+        submit_button.setPos((0.7, -2.18 + scroll_position))
+        submit_button_text.setPos((0.7, -2.18 + scroll_position))
+        submit_button.draw()
+        submit_button_text.draw()
+
+        win.flip()
+
+        if mouse.getPressed()[0]:
+            pos = mouse.getPos()
+            for q_idx, question_buttons in enumerate(option_buttons):
+                for opt_idx, button in enumerate(question_buttons):
+                    if button.contains(mouse):
+                        selected_answers_panas[q_idx] = opt_idx
+
+        if -1 not in selected_answers_panas and mouse.isPressedIn(submit_button):
+            debounce_click(mouse)
+            break
+
+    # Adjust index to start from 1 instead of 0
+    return [response + 1 for response in selected_answers_panas]
+
+
+
 
 ############################################################################################################################################################
 '''                                                               SPEECH PERCEPTION TASK                                                                  
 '''
 ############################################################################################################################################################
+
+perceptionInstructionText = visual.TextStim(win=win, text= 
+    """
+Instructions
+
+In this session, you will listen to a series of audio files and rate the speaker's emotion.
+
+For each audio clip:
+
+You’ll see an audio file with a play button at the top of the page. Press ‘Play’ to listen, and you may replay it as needed.
+Following the audio, you’ll rate the speaker's emotion across two dimensions on the next two pages: Valence and Arousal.
+Rating Scales:
+
+Valence (1 = extremely unpleasant, 9 = extremely pleasant)
+
+Unpleasant feelings include unhappy, annoyed, or bored.
+Pleasant feelings include happy, contented, or hopeful.
+For neutral feelings, select the middle rating (5). Intermediate numbers can be used for in-between feelings.
+Arousal (1 = low arousal, 9 = high arousal)
+
+Low arousal feelings include relaxed, calm, or sleepy.
+High arousal feelings include excited, jittery, or wide-awake.
+For neutral arousal, select the middle rating (5). Use intermediate numbers if necessary.
+Each page will display the question clearly along with a visual scale. Select the figure that best represents the speaker’s emotion according to your perception.
+
+A progress bar at the top will indicate your completion percentage and the audio clip number.
+
+If you’re ready to begin, click "Continue."
+    """, font='Arial', 
+    pos=(-0.40, -0.35), 
+    height=text_size, 
+    wrapWidth=1.15, 
+    color='black', 
+    colorSpace='rgb', 
+    opacity=1, 
+    languageStyle='LTR', 
+    alignText='left')
+
+
+# Here will go the code for the instruction page
+
+
+
+
+
+
 
 # SAM SCALE for rating of stimuli
 def rate_sam(buttons, images, text, left_label_text, right_label_text):
@@ -357,11 +504,11 @@ def present_stimulus(audio_file, audio_index):
     # Prompt Text at the top of the screen
     promptText = visual.TextStim(
         win=win,
-        text="Please click the 'Play' button to listen to the audio file.",
+        text="Please click the 'Play' button to listen to the audio file.\nListen carefully to the following audio clip and pay attention to the speaker's tone and emotion",
         font='Arial',
         pos=(0, 0.2),  # Position it above the play button
-        height=text_size,
-        wrapWidth=1.5,
+        height=0.03,
+        wrapWidth=1.2,
         color='black',
         colorSpace='rgb',
         opacity=1,
@@ -457,38 +604,62 @@ def display_speech_production_instructions():
     speechInstructionsText = visual.TextStim(
         win=win,
         text=
-        """
-        You are about to begin the Speech Production Task.\n
-        In this task, you will be presented with a series of paragraphs. Your goal is to read each paragraph aloud while recording your voice.\n\n
-        Please make sure to speak clearly and at a natural pace. Once you are ready to record, click the 'Record' button.\n\n
-        You can stop the recording by clicking the button again. Make sure to complete reading each paragraph before stopping the recording.\n\n
-        When you are ready to begin, click the 'Continue' button below.
+        """You are about to begin the Speech Production Task.\n
+In this task, you will be presented with a series of three paragraphs. Your goal is to read each paragraph aloud while recording your voice.\n
+- Each page will display one paragraph.
+- Click the 'Record' button to start recording. Read the paragraph aloud at a clear and natural pace.
+- The button will show "Recording (Click to stop)", indicating that the recording has started, and you should begin reading the paragraph.\n
+- Once you’ve finished reading, click the "Recording (Click to Stop)" button to end the recording, as shown in the image below.\n
+- After clicking Stop, the next page will automatically appear with another paragraph.\n\n\n\n\n\n\n\n\n
+- Repeat this process for all three paragraphs across three pages.\n
+Please ensure you complete reading the entire paragraph before stopping the recording.\n
+    When you're ready to begin, click the 'Continue' button below.
         """,
         font='Arial',
-        pos=(-0.45, -0.35), 
+        pos=(-0.45, -0.38), 
         height=text_size,  
-        wrapWidth=1.1,
+        wrapWidth=1.13,
         color='black',       
         colorSpace='rgb',
         opacity=1,
         alignText='left'
     )
 
+    # Add images side by side
+    image1 = visual.ImageStim(
+        win=win,
+        image='record_1.png',  # Replace with your actual image file
+        pos=(-0.2, -0.15),  # Position image1 on the left
+        size=(0.56, 0.23)  # Adjust size as needed
+    )
+    image2 = visual.ImageStim(
+        win=win,
+        image='record_2.png',  # Replace with your actual image file
+        pos=(0.2, -0.15),  # Position image2 on the right
+        size=(0.56, 0.23)  # Adjust size as needed
+    )
+
     # "Continue" button matching the style and position of the welcome page
     continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
     continueButtonText = visual.TextStim(win=win, text="Continue", pos=(0.7, -0.4), height=0.04, color='white')
 
-    scroll_position = -0.10  # Initial scroll position
+    scroll_position = -0.13  # Initial scroll position
     mouse = event.Mouse(visible=True, win=win)
 
     while True:
         # Update the position of the main text based on scroll_position
-        speechHeading.setPos((0, 0.49 + scroll_position))
-        speechInstructionsText.setPos((0, scroll_position))
+        speechHeading.setPos((0, 0.52 + scroll_position))
+        speechInstructionsText.setPos((0, -0.34+scroll_position))
+        image1.setPos((-0.3, -0.57 + scroll_position))  # Make image1 scroll
+        image2.setPos((0.28, -0.57 + scroll_position))   # Make image2 scroll
 
         # Draw the heading, text, and button
         speechHeading.draw()
         speechInstructionsText.draw()
+        
+        image1.draw()
+        image2.draw()
+
         continueButton.draw()
         continueButtonText.draw()
         win.flip()
@@ -637,9 +808,7 @@ def display_demographic_instructions():
     # Instruction text for the demographic survey
     demographicText = visual.TextStim(
         win=win,
-        text="""
-        Before we proceed, we kindly ask you to complete a brief demographic survey. 
-        This short survey helps us gather essential background information to support our research. Your responses will remain entirely confidential and will be used exclusively for research purposes. The survey should take no more than a 3-4 minutes to complete. Once you’re finished, you’ll be guided to the final task of the study.
+        text="""Before we proceed, we kindly ask you to complete a brief demographic survey.\nThis short survey helps us gather essential background information to support our research. Your responses will remain entirely confidential and will be used exclusively for research purposes. The survey should take few minutes to complete. Once you’re finished, you’ll be guided to the final test of the study.\n\n
 
         Please click 'Continue' when you're ready to begin.
         """,
@@ -661,7 +830,7 @@ def display_demographic_instructions():
     while True:
         # Update the position of the heading and main text based on scroll_position
         demographicHeading.setPos((0, 0.49 + scroll_position))
-        demographicText.setPos((0, 0.18+scroll_position))
+        demographicText.setPos((0, 0.140+scroll_position))
 
         # Draw the heading, text, and button
         demographicHeading.draw()
@@ -681,10 +850,6 @@ def display_demographic_instructions():
 
 # Defining the demographic questions and options
 demographic_questions = [
-    {
-        "question": "What is your age range?",
-        "options": ["18-20", "21-23", "24-25", "Prefer not to say"]
-    },
     {
         "question": "What gender do you most identify with?",
         "options": ["Male", "Female", "Transfemale", "Transmale", "Non-Binary", "Others", "Don't want to specify"]
@@ -708,6 +873,21 @@ demographic_questions = [
     }
 ]
 
+# Text input for age (since we removed it from demographic_questions)
+age_input_box = TextBox2(win, text='', 
+                         pos=(0, 0.4), 
+                         letterHeight=0.05, 
+                         color='black', 
+                         size=(0.2, 0.1))
+
+age_question = visual.TextStim(win=win, 
+                               text="What is your age?", 
+                               pos=(-0.30, 0.92), 
+                               height=text_size, 
+                               color='black',
+                               alignText = 'left')
+
+
 # Function to display demographic questions with proper spacing and scrolling functionality
 def display_demographic_questions():
     scroll_position = -0.34  # Start the page from the top
@@ -720,12 +900,11 @@ def display_demographic_questions():
 
     # Define custom spacing for each question based on the number of options
     custom_spacing = [
-        0.5,  
-        0.81,  
-        0.74,
-        0.60, 
-        0.328,
-        0.328
+        0.825,  
+        0.74,  
+        0.59,
+        0.33, 
+        0.33
     ]
 
     option_vertical_spacing = 0.1  # Space between options for each question
@@ -750,7 +929,7 @@ def display_demographic_questions():
                                           fillColor=None)
             option_label = visual.TextStim(win=win, 
                                            text=option, 
-                                           pos=(button_pos[0] + 0.25, button_pos[1]), 
+                                           pos=(button_pos[0] + 0.45, button_pos[1]), 
                                            height=0.03, 
                                            color='black')
             buttons.append(option_button)
@@ -762,10 +941,26 @@ def display_demographic_questions():
     submitButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
     submitButtonText = visual.TextStim(win=win, text="Submit", pos=(0.7, -0.4), height=0.04, color='white')
 
+
     while True:
         # Handle scroll wheel input to update the scroll position
         scroll_wheel = mouse.getWheelRel()[1]
         scroll_position += scroll_wheel * 0.03
+
+        # Draw age question and input box
+        age_question.setPos((0, 0.85 + scroll_position))
+        age_question.draw()
+        age_input_box.setPos((0, 0.8 + scroll_position))
+        age_input_box.draw()
+
+            # Capture numeric input for age
+        keys = event.getKeys()
+        for key in keys:
+            if key == 'backspace':
+                age_input_box.text = age_input_box.text[:-1]  # Remove last character
+            elif key in '0123456789':  # Allow only numbers
+                age_input_box.text += key
+
 
         # Draw each question and its options with scroll position
         for q_idx, question_text in enumerate(question_texts):
@@ -1425,6 +1620,14 @@ def display_scores(phq9_score, gad7_score):
 
 
 ############################################################################################################################################################
+'''                                                              THANK YOU NOTE [STUDY COMPLETION]                                                                 
+'''
+############################################################################################################################################################
+
+
+
+
+############################################################################################################################################################
 '''                                            ~ BEGINNING THE EXPERIMENT ~ (CALLING FUNCTIONS) & CSV MAKING                                                                 
 '''
 ############################################################################################################################################################
@@ -1433,6 +1636,8 @@ def display_scores(phq9_score, gad7_score):
 display_welcome()
 display_instructions()
 display_consent_form()
+
+
 
 # [CSV FILE SETUP]
 csv_file = 'experiment_data_temp.csv'
@@ -1448,17 +1653,22 @@ session_start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 # Prepare a list to store participant data for appending into one row
 participant_data = [participant_id, session_start_time]
 
+
+selected_answers_panas = display_panas_survey()
+participant_data.extend(selected_answers_panas)
+
+
 # [CALLING SPEECH PERCEPTION TASK]
 for i, audio_file in enumerate(audioStimuli):
     playCount, _ = present_stimulus(audio_file, i)
     valenceRating, valenceRT = rate_sam(
         samValenceButtons, valence_images, 
-        visual.TextStim(win=win, text="How pleasant was the speaker's voice in the provided audio file? (Press enter to next):", pos=(0, 0.4), height=0.05, color='black'),
+        visual.TextStim(win=win, text="How pleasant did the speaker’s voice sound in the audio clip? Please rate the emotion based on the scale below.\n (Press enter to next):", pos=(0, 0.4), height=0.05, color='black', wrapWidth = 1.4 ),
         "Extremely unpleasant", "Extremely pleasant"
     )
     arousalRating, arousalRT = rate_sam(
         samArousalButtons, arousal_images, 
-        visual.TextStim(win=win, text="How excited was the speaker's voice in the provided audio file? (Press enter to next):", pos=(0, 0.4), height=0.05, color='black'),
+        visual.TextStim(win=win, text="How energetic or excited did the speaker's voice sound in the audio clip?  Please rate the level of arousal on the scale below.\n (Press enter to next):", pos=(0, 0.4), height=0.05, color='black', wrapWidth = 1.4),
         "Low Arousal", "High Arousal"
     )
     
@@ -1473,10 +1683,12 @@ speech_production_data = run_speech_production_task(participant_id)
 for audio_file, duration in speech_production_data:
     participant_data.extend([audio_file, duration])
 
-# [CALLING DEMOGRAPHICS SURVEY - 1]
+
 # [CALLING DEMOGRAPHICS SURVEY - 1]
 display_demographic_instructions()
 selected_answers = display_demographic_questions()
+age = age_input_box.text  # Get age input from the text box
+participant_data.append(age)  # Append age to participant data
 participant_data.extend(selected_answers)
 
 
@@ -1532,6 +1744,10 @@ with open(csv_file, mode='a', newline='') as file:
 
     if not file_exists:
         header = ['Participant ID', 'Session Start Time']
+
+        # PANAS Headers
+        header.extend([f'PANAS_Q{i+1}' for i in range(20)])
+
         # Speech Perception Task Headers
         for i in range(len(audioStimuli)):
             header.extend([f'Stimuli Name {i+1}', f'Valence {i+1}', f'Valence RT {i+1}', 
@@ -1553,6 +1769,8 @@ with open(csv_file, mode='a', newline='') as file:
             "Family Member Diagnosed", 
             "Family Relationship"
         ])
+        
+
         # PHQ-9 and GAD-7 Headers
         header.extend([f'PHQ9_Q{i+1}' for i in range(9)])
         header.extend([f'GAD7_Q{i+1}' for i in range(7)])
