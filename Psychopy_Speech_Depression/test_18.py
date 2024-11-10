@@ -27,7 +27,6 @@ text_size = 0.040  # Consistent text size
 ############################################################################################################################################################
 '''                                                                       WELCOME PAGE                                                                
 '''
-############################################################################################################################################################
 welcomeHeading = visual.TextStim(
     win=win, name='welcomeHeading',
     text="WELCOME!",
@@ -426,14 +425,6 @@ If you’re ready to begin, click "Continue."
     alignText='left')
 
 
-# Here will go the code for the instruction page
-
-
-
-
-
-
-
 # SAM SCALE for rating of stimuli
 def rate_sam(buttons, images, text, left_label_text, right_label_text):
     mouse = event.Mouse(visible=True, win=win)
@@ -810,7 +801,7 @@ def display_demographic_instructions():
         win=win,
         text="""Before we proceed, we kindly ask you to complete a brief demographic survey.\nThis short survey helps us gather essential background information to support our research. Your responses will remain entirely confidential and will be used exclusively for research purposes. The survey should take few minutes to complete. Once you’re finished, you’ll be guided to the final test of the study.\n\n
 
-        Please click 'Continue' when you're ready to begin.
+To continue, please click the 'Continue' button. 
         """,
         font='Arial',
         pos=(-0.45, -0.15),  # Initial position
@@ -875,10 +866,10 @@ demographic_questions = [
 
 # Text input for age (since we removed it from demographic_questions)
 age_input_box = TextBox2(win, text='', 
-                         pos=(0, 0.4), 
-                         letterHeight=0.05, 
-                         color='black', 
-                         size=(0.2, 0.1))
+                            pos=(0, 0.4), 
+                            letterHeight=0.05, 
+                            color='black', 
+                            size=(0.2, 0.1))
 
 age_question = visual.TextStim(win=win, 
                                text="What is your age?", 
@@ -890,9 +881,10 @@ age_question = visual.TextStim(win=win,
 
 # Function to display demographic questions with proper spacing and scrolling functionality
 def display_demographic_questions():
-    scroll_position = -0.34  # Start the page from the top
+    scroll_position = -0.24  # Start the page from the top
     mouse = event.Mouse(visible=True, win=win)
-    selected_answers = [-1] * len(demographic_questions)  # Track selected answer for each question
+    # Track selected answer for each question
+    selected_answers = [-1] * len(demographic_questions)  
 
     question_texts = []
     option_buttons = []
@@ -907,7 +899,8 @@ def display_demographic_questions():
         0.33
     ]
 
-    option_vertical_spacing = 0.1  # Space between options for each question
+    # Space between options for each question
+    option_vertical_spacing = 0.1  
 
     # Create visual elements for each question and options
     for idx, question_data in enumerate(demographic_questions):
@@ -948,17 +941,17 @@ def display_demographic_questions():
         scroll_position += scroll_wheel * 0.03
 
         # Draw age question and input box
-        age_question.setPos((0, 0.85 + scroll_position))
+        age_question.setPos((-0.06, 1.0 + scroll_position))
         age_question.draw()
         age_input_box.setPos((0, 0.8 + scroll_position))
         age_input_box.draw()
 
-            # Capture numeric input for age
+        # Capture numeric input for age
         keys = event.getKeys()
         for key in keys:
             if key == 'backspace':
-                age_input_box.text = age_input_box.text[:-1]  # Remove last character
-            elif key in '0123456789':  # Allow only numbers
+                age_input_box.text = age_input_box.text[:-1] 
+            elif key in '0123456789':  
                 age_input_box.text += key
 
 
@@ -988,8 +981,9 @@ def display_demographic_questions():
 
         # Check if the Submit button is clicked and all questions are answered
         if mouse.isPressedIn(submitButton) and -1 not in selected_answers:
-            debounce_click(mouse)  # Prevent accidental multiple clicks
-            break  # Exit the loop when the Submit button is clicked
+            # Prevent accidental multiple clicks
+            debounce_click(mouse)  
+            break  
 
         win.flip()
 
@@ -1147,11 +1141,11 @@ def display_psych_demographics():
                                 selected_options.add(i)
                         else:
                             selected_options = {i}
-                        core.wait(0.2)  # Debounce click
+                        core.wait(0.2) 
 
             # Check if the Submit button is clicked
             if mouse.isPressedIn(submit_button):
-                core.wait(0.2)  # Debounce click
+                core.wait(0.2)
                 break
 
         selected_text_options = [options[i] for i in selected_options]
@@ -1228,10 +1222,10 @@ def display_health_survey_instructions():
     healthInstructionsText = visual.TextStim(
         win=win,
         text=
-        """
-        In this final part of the study, we will ask you to complete a few brief surveys related to general health and well-being. \n
+        """In this final part of the study, we will ask you to complete a few brief surveys related to general health and well-being. \n
 
-        Please take a moment to consider each question carefully and respond honestly based on your recent experiences. Your answers are invaluable to our research and will provide important insights into overall well-being.
+Please consider each question carefully and respond honestly based on your recent experiences. Your answers are invaluable to our research and will provide important insights into overall well-being.
+        
         """,
         font='Arial',
         pos=(-0.45, -0.15), 
@@ -1618,14 +1612,78 @@ def display_scores(phq9_score, gad7_score):
             break
 
 
-
 ############################################################################################################################################################
 '''                                                              THANK YOU NOTE [STUDY COMPLETION]                                                                 
 '''
 ############################################################################################################################################################
 
+def display_thanks_note():
+    # Heading for the instruction page, similar to the "WELCOME" heading
+    thanksHeading = visual.TextStim(
+        win=win, name='thanksHeading',
+        text="YOU HAVE COMPLETED THE STUDY",
+        font='Arial',
+        pos=(0, 0.4),  
+        height=0.06, 
+        color='black',
+        colorSpace='rgb',
+        opacity=1,
+        alignText='center'
+    )
 
+    # Thankyou note text
+    thanksNoteText = visual.TextStim(
+        win=win,
+        text=
+        """We sincerely appreciate the time and effort you’ve taken to complete this study. Your valuable responses will be handled with the highest level of confidentiality and will play an important role in advancing our research on speech emotion perception in young adults.
 
+If you have any questions or require further information, please feel free to reach out to us:
+
+    - Research Students: guneesh.vats@research.iiit.ac.in
+    - Professors: priyanka.srivastava@iiit.ac.in, 
+                  chiranjeevi.yarra@iiit.ac.in
+
+Thank you once again for contributing to our research. Your participation is invaluable to us.
+Please click the 'Submit' button below to finalize your participation.
+
+        """,
+        font='Arial',
+        pos=(-0.45, -0.15), 
+        height=text_size,  
+        wrapWidth=1.1,
+        color='black',       
+        colorSpace='rgb',
+        opacity=1,
+        alignText='left'
+    )
+
+    # "Continue" button matching the style and position of the welcome page
+    continueButton = visual.Rect(win, width=0.2, height=0.07, fillColor='darkgreen', pos=(0.7, -0.4))
+    continueButtonText = visual.TextStim(win=win, text="Submit", pos=(0.7, -0.4), height=0.04, color='white')
+
+    scroll_position = -0.10  # Initial scroll position
+    mouse = event.Mouse(visible=True, win=win)
+
+    while True:
+        # Update the position of the main text based on scroll_position
+        thanksHeading.setPos((0, 0.65 + scroll_position))
+        thanksNoteText.setPos((0, 0.15 + scroll_position))
+
+        # Draw the heading, text, and button
+        thanksHeading.draw()
+        thanksNoteText.draw()
+        continueButton.draw()
+        continueButtonText.draw()
+        win.flip()
+
+        # Handle scroll wheel input to update the scroll position
+        scroll_wheel = mouse.getWheelRel()[1]
+        scroll_position += scroll_wheel * 0.03
+
+        # Check if the continue button is clicked
+        if mouse.isPressedIn(continueButton):
+            debounce_click(mouse)  # Debounce to prevent accidental multiple clicks
+            break
 
 ############################################################################################################################################################
 '''                                            ~ BEGINNING THE EXPERIMENT ~ (CALLING FUNCTIONS) & CSV MAKING                                                                 
@@ -1732,7 +1790,7 @@ gad7_score = sum(selected_answers_gad7)  # Assuming selected_answers_gad7 holds 
 
 # Display the scores page
 display_scores(phq9_score, gad7_score)
-
+display_thanks_note()
 
 
 #[WRITING ALL THE DATA TO CSV]
