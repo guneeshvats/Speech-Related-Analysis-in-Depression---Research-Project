@@ -54,7 +54,13 @@ In the folder - `Psychopy_Speech_Depression` I am tracking all the new codes tha
 
 Instructions for this study - [Link](https://docs.google.com/document/d/1w5UWErsPd9viVSa4ohO3QQxP07mwwRgHAJH7JjilpZs/edit?tab=t.0)
 
+Research papers to review for Speech Emotion Perception Analysis : 
+
+
 Research papers to review for Speech Production Analysis : 
 
-1. review of depression and suicide risk assessment using speech analysis -  [Link](https://www.sciencedirect.com/science/article/pii/S0167639315000369)
-2. 
+1. review of depression and suicide risk assessment using speech analysis : [Link](https://www.sciencedirect.com/science/article/pii/S0167639315000369)
+2. Research papers to review for Speech Production Analysis : [Link](https://karger.com/dib/article/4/3/99/99875)
+3. Investigation of different speech types and emotions for detecting depression using different classifiers : [Link](https://www.sciencedirect.com/science/article/pii/S0167639316303053)
+4. 
+
