@@ -38,7 +38,7 @@ Track initial progress on [Notion Page](https://www.notion.so/Speech-Emotion-Per
 **Publication History**:
 - **Interspeech 2023**: Submission `Version 5_submission.pdf` (rejected)
 - **OCOCOSDA 2024**: Accepted on a similar design, `IIITSaint_EmoMDB_2024.pdf`
-- **Dharti - 2024**: Abstract only Submission, Accepted, `Dharti 2024 Abstract.pdf`
+- **Dharti - 2024**: Abstract only Submission, Rejected, `Dharti 2024 Abstract.pdf`
 
 ---
 
