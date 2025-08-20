@@ -42,7 +42,7 @@ Track initial progress on [Notion Page](https://www.notion.so/Speech-Emotion-Per
 
 ---
 
-### Version 2: Speech Emotion Perception in Depression & Production Combined
+### Version 2: Speech Emotion Perception in Depression & Effects of Depression on Speech Production 
 
 In Version 2, we made significant changes to address challenges from Version 1. We aim to include both Clinical MDD patients and subclinical populations for a more comprehensive study.
 
